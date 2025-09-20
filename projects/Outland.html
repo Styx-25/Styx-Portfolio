@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outland - Game Concept & Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #dcdcdc;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-title {
+            font-family: 'IM Fell English SC', serif;
+        }
+        .bg-gradient-custom {
+            background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(26,26,26,0.95) 80%, rgba(26,26,26,0) 100%);
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(204, 163, 77, 0), rgba(204, 163, 77, 0.5), rgba(204, 163, 77, 0));
+            margin: 4rem 0;
+            border: 0;
+        }
+        .card {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .sticky-nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .main-tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            font-size: 1.5rem; /* Larger font for main tabs */
+        }
+        .main-tab-button.active {
+            color: #fcd34d; /* amber-300 */
+            border-bottom-color: #fcd34d;
+        }
+        .sub-tab-button { /* Renamed from tab-button for clarity */
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .sub-tab-button.active {
+            color: #fcd34d; /* amber-300 */
+            border-bottom-color: #fcd34d;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="text-center py-20 md:py-28 bg-cover bg-center bg-fixed" style="background-image: url('https://image.pollinations.ai/prompt/a%20desolate%20and%20stormy%20coastline%20littered%20with%20the%20colossal,%20splintered%20wreckage%20of%20a%20Victorian-era%20steamship,%20digital%20art,%20cinematic,%20hyperdetailed,%20volumetric%20lighting');">
+        <div class="bg-black bg-opacity-70 py-16">
+            <h1 class="font-title text-6xl md:text-8xl text-amber-300 tracking-wider">OUTLAND</h1>
+            <p class="text-lg md:text-xl mt-4 max-w-3xl mx-auto text-gray-300">As survivors of a shipwrecked expedition, you and your crewmates must scavenge the ruins of a forgotten civilization and build a sanctuary against a land twisted by a supernatural Blight and its ancient, clockwork guardians.</p>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="sticky-nav bg-gradient-custom backdrop-blur-sm shadow-lg">
+        <div class="container mx-auto px-4 flex justify-center items-center py-2 space-x-8">
+            <button class="main-tab-button font-title active" data-tab="idea">Idea</button>
+            <button class="main-tab-button font-title" data-tab="plan">Plan</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        
+        <!-- IDEA TAB CONTENT -->
+        <div class="main-tab-pane active" id="idea">
+            <!-- Sub-Navigation for Idea Tab -->
+            <div class="flex justify-center items-center py-3 space-x-4 md:space-x-8 text-sm md:text-base overflow-x-auto border-b border-gray-700 mb-12">
+                <a href="#premise" class="font-title text-gray-300 hover:text-amber-300 transition-colors duration-300">Premise</a>
+                <a href="#arrival" class="font-title text-gray-300 hover:text-amber-300 transition-colors duration-300">The Arrival</a>
+                <a href="#systems" class="font-title text-gray-300 hover:text-amber-300 transition-colors duration-300">World Systems</a>
+                <a href="#threats" class="font-title text-gray-300 hover:text-amber-300 transition-colors duration-300">Threats</a>
+                <a href="#workshop" class="font-title text-gray-300 hover:text-amber-300 transition-colors duration-300">The Workshop</a>
+                <a href="#progression" class="font-title text-gray-300 hover:text-amber-300 transition-colors duration-300">Progression</a>
+                <a href="#biomes" class="font-title text-gray-300 hover:text-amber-300 transition-colors duration-300">Biomes</a>
+                <a href="#endgame" class="font-title text-gray-300 hover:text-amber-300 transition-colors duration-300">Endgame</a>
+            </div>
+
+            <!-- Core Premise Section -->
+            <section id="premise" class="scroll-mt-48">
+                <h2 class="font-title text-4xl text-center text-amber-300 mb-8">The Cursed Continent</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-gray-400 leading-relaxed space-y-4">
+                        <p>In an age of steam and discovery, the Royal Pioneer's Society launched "The Unflinching" to chart the last great unknown: a continent shrouded in perpetual storms, marked only as "The Outland." The mission was a catastrophic failure.</p>
+                        <p>As the expedition's inventor, you awaken as one of the few survivors on a hostile shore. This land is afflicted by "The Verdant Blight," a supernatural plague that warps all life into grotesque, aggressive forms. The very air pulses with its corrupting influence.</p>
+                        <p>Worse, the continent is littered with ruins of a forgotten, impossibly advanced civilization. These ruins are patrolled by tireless clockwork "Custodians," whose ancient programming compels them to contain the Blight and eliminate any anomaly—including you and your fellow survivors.</p>
+                        <p class="font-bold text-gray-300 text-lg">You are caught in an ancient war. To survive, you must master the technology of both the past and the plague.</p>
+                    </div>
+                    <img src="https://image.pollinations.ai/prompt/a%20lone%20explorer%20in%20Victorian-era%20gear%20stands%20before%20colossal,%20moss-covered%20stone%20ruins%20overgrown%20with%20glowing,%20alien-like%20fungi,%20fantasy%20art,%20ethereal,%20misty" alt="Ancient ruin in a blighted forest" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                </div>
+            </section>
+
+            <hr class="section-divider">
+            
+            <!-- The Arrival Section -->
+            <section id="arrival" class="scroll-mt-48">
+                <h2 class="font-title text-4xl text-center text-amber-300 mb-12">The Arrival: A Baptism by Storm</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-gray-400 leading-relaxed space-y-4">
+                        <h3 class="font-title text-2xl text-gray-200">Defense of "The Unflinching"</h3>
+                        <p>The game opens not in silence, but in chaos. You and your teammates are on the deck of your expeditionary steamship, fighting for your lives. For 15-30 minutes, you must work together to fend off waves of grotesque, Blighted sea creatures that leap from the stormy waters, attempting to tear the ship apart plank by plank. Players must use harpoon guns, steam rifles, and even repair tools to keep the ship afloat in this frantic, cooperative tutorial.</p>
+                        <h3 class="font-title text-2xl text-gray-200 mt-6">The Cataclysm</h3>
+                        <p>Despite your best efforts, a colossal creature—a giant Blighted octopus or shark—emerges from the depths. This massive boss entity attacks the ship in a scripted sequence, shattering its hull and dragging it beneath the waves. The screen fades to black amidst the sounds of splintering wood and panicked shouts.</p>
+                    </div>
+                    <img src="https://image.pollinations.ai/prompt/a%20steampunk%20steamship%20being%20attacked%20by%20swarms%20of%20horrific%20sea%20monsters%20during%20a%20violent%20storm,%20digital%20art,%20action-packed,%20cinematic" alt="Ship under attack by sea creatures" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center mt-8">
+                     <img src="https://image.pollinations.ai/prompt/a%20group%20of%20survivors%20on%20a%20small,%20makeshift%20raft%20at%20dawn,%20seeing%20the%20silhouette%20of%20a%20mysterious,%_jungle-covered%20island%20through%20the%20mist,%_concept%20art" alt="Survivors on a raft spotting an island" class="rounded-lg shadow-2xl w-full h-auto object-cover md:order-last">
+                    <div class="text-gray-400 leading-relaxed space-y-4">
+                        <h3 class="font-title text-2xl text-gray-200">The Drift</h3>
+                        <p>You awaken, gasping for air, on a makeshift raft crafted from the ship's wreckage. Here, you find your surviving teammates (the other players in the session). The game transitions to a brief, quiet phase. For 2-5 minutes, you drift on the open ocean, a period for the team to regroup and take stock of their grim situation. The storm has passed, but a new sense of dread hangs in the air.</p>
+                        <h3 class="font-title text-2xl text-gray-200 mt-6">Landfall</h3>
+                        <p>Through the mist, a silhouette appears on the horizon: a massive, jungle-covered island. The Outland. The currents pull your raft inexorably towards its shores. This is where your journey, and the true struggle for survival, begins.</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- World Systems Section -->
+            <section id="systems" class="scroll-mt-48 text-center">
+                <h2 class="font-title text-4xl text-amber-300 mb-12">Living World Systems</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="font-title text-2xl text-gray-200 mb-2">Dynamic Faction War</h3>
+                        <p class="text-gray-400">The Blight and Custodians are in constant, unscripted conflict. Lure a Blight Fiend into a Custodian patrol to harvest the wreckage. Watch as the Blight slowly corrupts and consumes captured territory, even overgrowing mechanical defenses if left unchecked.</p>
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="font-title text-2xl text-gray-200 mb-2">Escalating Disturbance</h3>
+                        <p class="text-gray-400">The Custodians dynamically react to your industrial footprint. A single steam-powered forge might only attract a scout, but a fully automated quarry will trigger a targeted assault by Juggernauts. Power and progress come at the cost of their attention.</p>
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="font-title text-2xl text-gray-200 mb-2">Calculated Corruption</h3>
+                        <p class="text-gray-400">Corruption is a resource to be managed. At high levels, you might unlock the ability to see hidden Blighted pathways or understand creature whispers, but Custodians will detect you from further away and deal bonus damage to you.</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- The Dual Threats Section -->
+            <section id="threats" class="scroll-mt-48">
+                 <!-- Content is the same as previous version -->
+                <h2 class="font-title text-4xl text-center text-amber-300 mb-12">The Dual Threats</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- The Blighted Horde -->
+                <div>
+                    <h3 class="font-title text-3xl text-green-400 mb-4 text-center">The Blighted Horde</h3>
+                    <img src="https://image.pollinations.ai/prompt/a%20pack%20of%20horrific%20wolves%20and%20bears,%20their%20bodies%20twisted%20with%20glowing%20fungal%20growths%20and%20extra%20limbs,%20attacking%20in%20a%20dark%20forest,%20horror%20art" class="rounded-lg shadow-lg w-full h-64 object-cover mb-4">
+                    <p class="text-gray-400 mb-4">Unpredictable, organic, and ever-mutating horrors driven by a singular hunger to consume and convert.</p>
+                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
+                        <li><b>Blight Hounds:</b> Now have a leader variant that can howl to summon more hounds to the fight.</li>
+                        <li><b>Spore-Walkers:</b> These lumbering tanks are drawn to the sound of active machinery, making them a direct threat to your industry.</li>
+                        <li><b>Grave-Tendrils:</b> A stationary, plant-like horror that erupts from the ground to snare unsuspecting players.</li>
+                        <li><b>Shriekers:</b> A bat-like flying creature that attacks from above and lets out a deafening screech that can temporarily disable your steam-powered gear.</li>
+                        <li><b>Blight Fiends:</b> Elite alphas that appear during Sporefall. Each has a unique model and abilities, such as a Corrosive Fiend that spits acid, or a Mimic Fiend that can disguise itself as a resource node.</li>
+                    </ul>
+                </div>
+                <!-- The Custodian Legion -->
+                <div>
+                    <h3 class="font-title text-3xl text-amber-300 mb-4 text-center">The Custodian Legion</h3>
+                    <img src="https://image.pollinations.ai/prompt/an%20army%20of%20ancient,%20Victorian-style%20clockwork%20robots%20patrolling%20through%20misty%20ruins,%20some%20are%20humanoid,%20others%20are%20spider-like,%20steampunk%20art" class="rounded-lg shadow-lg w-full h-64 object-cover mb-4">
+                    <p class="text-gray-400 mb-4">Methodical, logical, and unyielding machines. Their goal is not malice, but absolute, cold-as-iron order.</p>
+                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
+                        <li><b>Scouts:</b> If they spot you and escape, they will lead a Sentinel patrol back to your location.</li>
+                        <li><b>Sentinels:</b> Can now switch between ranged steam-rifles and superheated arm-blades for close quarters.</li>
+                        <li><b>Suppressors:</b> A new unit equipped with a large shield and a cannon that fires nets, temporarily immobilizing the player.</li>
+                        <li><b>Juggernauts:</b> These walking tanks will now target specific structural weak points in your base.</li>
+                        <li><b>The Grand Custodian:</b> Not just a final boss, but a persistent presence. Its 'eyes' can be seen watching you from ruins, and it can remotely activate defenses or deploy squads across the map.</li>
+                    </ul>
+                </div>
+            </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- The Workshop Section -->
+            <section id="workshop" class="scroll-mt-48">
+                 <!-- Content is the same as previous version -->
+                <h2 class="font-title text-4xl text-center text-amber-300 mb-12">The Workshop & Invention</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <img src="https://image.pollinations.ai/prompt/a%20sprawling,%20fortified%20steampunk%20workshop%20at%20night,%20lit%20by%20the%20glow%20of%20a%20central%20forge%20and%20steam-powered%20turrets,%20concept%20art,%20detailed" alt="Steampunk Workshop" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                <div class="text-gray-400 leading-relaxed space-y-4">
+                    <p>Your workshop is your sanctuary and your industrial heart. Base building is a free-form, modular process, but all systems rely on one core principle: <b class="text-amber-300">Steam Power</b>. You must manage a network of boilers, pipes, and pressure valves.</p>
+                    <p><b>Industrial Automation:</b> Progress from hand-cranking devices to a fully automated factory. Build steam-powered drills to excavate ore, conveyor belts to transport materials, and automated forges to smelt ingots, all while managing the noise and power consumption to avoid the Custodians' notice.</p>
+                    <p><b>Key Workbenches:</b></p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><b>Tinkerer's Desk:</b> For crafting basic tools and solving schematic puzzles for new inventions.</li>
+                        <li><b>Forge & Foundry:</b> For processing ores and crafting advanced metal components.</li>
+                        <li><b>Alchemy Lab:</b> For brewing potions, creating explosives, and experimenting with Blighted organs.</li>
+                        <li><b>Deconstructor:</b> A high-risk, high-reward station for breaking down Custodian parts to learn their secrets. A critical failure can cause it to explode.</li>
+                    </ul>
+                </div>
+            </div>
+            </section>
+            
+            <hr class="section-divider">
+            
+            <!-- Progression & Skills Section -->
+            <section id="progression" class="scroll-mt-48">
+                 <!-- Content is the same as previous version -->
+                 <h2 class="font-title text-4xl text-center text-amber-300 mb-12">Invention & Progression</h2>
+             <div class="bg-[#2a2a2a] border border-[#444] rounded-lg p-6">
+                <p class="text-center text-gray-400 mb-4">Progression is tied to your discoveries. Finding a new material, deconstructing a new Custodian, or analyzing a Blighted organ unlocks new branches in your skill trees and new schematics at your workbenches. This is divided into four main Tech Tiers.</p>
+                <div class="flex justify-center border-b border-b-[#444] mb-4">
+                    <button class="sub-tab-button active py-2 px-4" data-sub-tab="mechanist">Mechanist</button>
+                    <button class="sub-tab-button py-2 px-4" data-sub-tab="naturalist">Naturalist</button>
+                    <button class="sub-tab-button py-2 px-4" data-sub-tab="survivor">Survivor</button>
+                </div>
+                <div id="sub-tab-content" class="text-gray-400">
+                    <!-- Mechanist Tab -->
+                    <div class="sub-tab-pane active" id="mechanist">
+                        <p class="mb-4">Focuses on base-building, automation, and mastering clockwork technology.</p>
+                        <ul class="space-y-2">
+                            <li><b>Example Skill: Pressure Regulation</b> - Manually vent steam from pipes to create a damaging smokescreen, or overcharge turrets for increased fire rate.</li>
+                            <li><b>Example Skill: Automated Sorter</b> - Craft a device that automatically sorts items from conveyor belts into designated chests.</li>
+                            <li><b>Ultimate Skill: Masterwork Gears</b> - Unlock the ability to craft flawless components, granting crafted items and structures superior durability and efficiency.</li>
+                        </ul>
+                    </div>
+                    <!-- Naturalist Tab -->
+                    <div class="sub-tab-pane hidden" id="naturalist">
+                         <p class="mb-4">Focuses on alchemy, taming the Blight, and using the natural world to your advantage.</p>
+                        <ul class="space-y-2">
+                            <li><b>Example Skill: Potent Tinctures</b> - Greatly increase the effectiveness and duration of all alchemical potions.</li>
+                            <li><b>Example Skill: Apex Predator</b> - Wearing armor crafted from a Blight Fiend makes lesser Blighted creatures less likely to attack you on sight.</li>
+                            <li><b>Ultimate Skill: Controlled Corruption</b> - Unlock the ability to craft gear that harnesses the Blight, granting its power without inflicting Corruption on the user.</li>
+                        </ul>
+                    </div>
+                    <!-- Survivor Tab -->
+                     <div class="sub-tab-pane hidden" id="survivor">
+                        <p class="mb-4">Focuses on combat prowess, personal fortitude, and resisting the horrors of the Outland.</p>
+                        <ul class="space-y-2">
+                            <li><b>Example Skill: Fortitude</b> - Permanently increase your maximum health and resistance to physical damage.</li>
+                            <li><b>Example Skill: Field Repair</b> - Use basic parts to perform partial repairs on weapons and tools in the field, away from a workbench.</li>
+                            <li><b>Ultimate Skill: Adrenaline Rush</b> - After taking a heavy blow, gain a temporary boost to melee damage and movement speed.</li>
+                        </ul>
+                    </div>
+                </div>
+             </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Biomes Section -->
+            <section id="biomes" class="scroll-mt-48 text-center">
+                 <!-- Content is the same as previous version -->
+                <h2 class="font-title text-4xl text-amber-300 mb-12">The Lands of the Outland</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                 <div class="card p-4 rounded-lg">
+                    <img src="https://image.pollinations.ai/prompt/a%20rocky,%20black%20sand%20beach%20littered%20with%20the%20wreckage%20of%20an%20old%20wooden%20ship%20under%20a%20stormy%20sky,%20concept%20art" alt="Shipwreck Coast" class="rounded-md mb-4 w-full h-40 object-cover">
+                    <h3 class="font-title text-xl text-gray-200">The Shattered Strand</h3>
+                    <p class="text-sm text-gray-400"><b>Threats:</b> Blight Hounds, Scout Drones. <br><b>Resources:</b> Scrap Iron, Copper, Basic Wood. <br>Your starting point, defined by a desperate search for shelter and resources amidst shipwreck debris.</p>
+                </div>
+                <div class="card p-4 rounded-lg">
+                    <img src="https://image.pollinations.ai/prompt/a%20dense,%20dark%20jungle%20with%20glowing,%20oversized%20mushrooms%20and%20twisted%20trees,%20bioluminescent,%20fantasy%20concept%20art" alt="Whispering Jungle" class="rounded-md mb-4 w-full h-40 object-cover">
+                    <h3 class="font-title text-xl text-gray-200">The Whispering Jungle</h3>
+                    <p class="text-sm text-gray-400"><b>Threats:</b> Stalkers, Shriekers, Spore-Walkers. <br><b>Resources:</b> Strange Woods, Rare Herbs, Blighted Organs. <br>The heart of the Blight, a place of low visibility and constant ambushes.</p>
+                </div>
+                <div class="card p-4 rounded-lg">
+                     <img src="https://image.pollinations.ai/prompt/a%20misty%20swamp%20with%20ancient%20stone%20ruins%20sinking%20into%20the%20mud,%20bioluminescent%20plants%20glowing%20under%20the%20water,%20digital%20art" alt="Ancient Quagmire" class="rounded-md mb-4 w-full h-40 object-cover">
+                    <h3 class="font-title text-xl text-gray-200">The Ancient Quagmire</h3>
+                    <p class="text-sm text-gray-400"><b>Threats:</b> Blighted Serpents, Sentinel Patrols. <br><b>Resources:</b> Rich Ore Veins (underwater), Sunken Artifacts. <br>A toxic swamp that requires specialized gear to explore its hidden, underwater ruins.</p>
+                </div>
+                <div class="card p-4 rounded-lg">
+                    <img src="https://image.pollinations.ai/prompt/a%20vast,%20ruined%20city%20of%20stone%20and%20brass,%20with%20giant%20gears%20and%20clockwork%20mechanisms%20overgrown%20by%20nature,%20steampunk%20fantasy%20art" alt="Forgotten City" class="rounded-md mb-4 w-full h-40 object-cover">
+                    <h3 class="font-title text-xl text-gray-200">The Cogwork Heart</h3>
+                    <p class="text-sm text-gray-400"><b>Threats:</b> Juggernauts, Suppressors, The Grand Custodian. <br><b>Resources:</b> Masterwork Components, Ancient Schematics. <br>The industrial core of the old world, a vertical labyrinth of factories and danger.</p>
+                </div>
+            </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Endgame Section -->
+            <section id="endgame" class="scroll-mt-48 text-center">
+                 <!-- Content is the same as previous version -->
+                <h2 class="font-title text-4xl text-amber-300 mb-12">Your Final Choice</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="card p-6 rounded-lg">
+                    <h3 class="font-title text-2xl text-gray-200 mb-2">The Purge</h3>
+                    <p class="text-gray-400">To achieve this, you must gather three unique "Heartwood" samples from ancient trees in each biome, combine them with a Custodian power core, and craft a master alchemical agent. You must then fight your way to the Grand Custodian's throne room and use the city's geothermal vents to disperse the cure, pacifying the continent.</p>
+                </div>
+                <div class="card p-6 rounded-lg">
+                    <h3 class="font-title text-2xl text-gray-200 mb-2">The Escape</h3>
+                    <p class="text-gray-400">This requires finding three key, masterwork schematics: the <b class="text-gray-300">Reinforced Hull</b> from the Quagmire ruins, the <b class="text-gray-300">Clockwork Navigator</b> from deep in the Jungle, and the <b class="text-gray-300">Geothermal Boiler</b> from the Cogwork Heart. Crafting these components and assembling the airship will trigger a final, desperate assault from all nearby factions.</p>
+                </div>
+            </div>
+            </section>
+        </div>
+
+        <!-- PLAN TAB CONTENT -->
+        <div class="main-tab-pane hidden" id="plan">
+            <h2 class="font-title text-4xl text-center text-amber-300 mb-12">Development Roadmap</h2>
+            <p class="text-center text-gray-400 max-w-3xl mx-auto mb-12">This roadmap outlines the planned journey for creating Outland, focusing on a phased approach to build, expand, and polish the game. This ensures a stable and engaging experience at every stage of development.</p>
+
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <!-- Phase 1 -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="font-title text-2xl text-amber-300 mb-2">Phase 1: Core Foundation (Alpha - First 6 Months)</h3>
+                    <p class="text-gray-400 mb-4"><b>Goal:</b> Establish a stable, playable vertical slice of the core gameplay loop.</p>
+                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
+                        <li><b>Core Mechanics:</b> Implement player vitals (health, stamina, corruption), inventory, and basic cooperative multiplayer functionality.</li>
+                        <li><b>Crafting:</b> Introduce Makeshift and basic Clockwork crafting tiers at the Tinkerer's Desk.</li>
+                        <li><b>World:</b> Build and populate The Shattered Strand biome, including its unique resources and dangers.</li>
+                        <li><b>Enemies:</b> Implement foundational AI for Blight Hounds and Custodian Scouts.</li>
+                        <li><b>Base Building:</b> Allow construction of basic shelters and the initial tier of steam power.</li>
+                    </ul>
+                </div>
+                <!-- Phase 2 -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="font-title text-2xl text-amber-300 mb-2">Phase 2: World & Systems Expansion (Beta - Months 7-15)</h3>
+                    <p class="text-gray-400 mb-4"><b>Goal:</b> Flesh out the world, expand player capabilities, and introduce deeper systems.</p>
+                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
+                        <li><b>New Biomes:</b> Add The Whispering Jungle and The Ancient Quagmire, with their unique flora, fauna, and environmental hazards.</li>
+                        <li><b>Deeper Crafting:</b> Introduce the Alchemy Lab, Blight-tech crafting, and advanced Clockwork tiers.</li>
+                        <li><b>Automation:</b> Implement the first wave of industrial automation (drills, conveyors).</li>
+                        <li><b>Enemy Roster:</b> Add Stalkers, Shriekers, Sentinels, and Suppressors to create more complex combat encounters.</li>
+                        <li><b>Progression:</b> Implement the full skill tree system for all three specializations.</li>
+                    </ul>
+                </div>
+                 <!-- Phase 3 -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="font-title text-2xl text-amber-300 mb-2">Phase 3: Endgame & Polish (Launch - Months 16-24)</h3>
+                    <p class="text-gray-400 mb-4"><b>Goal:</b> Create a complete, polished, and narratively satisfying experience from start to finish.</p>
+                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
+                        <li><b>Final Biome:</b> Implement The Cogwork Heart, including the Grand Custodian's domain.</li>
+                        <li><b>Endgame Quests:</b> Fully implement the "Purge" and "Escape" storylines and final encounters.</li>
+                        <li><b>Narrative:</b> Populate the world with all journal entries, logs, and environmental storytelling elements.</li>
+                        <li><b>Optimization & Balance:</b> Conduct extensive performance optimization, gameplay balancing, and bug fixing.</li>
+                        <li><b>Community Feedback:</b> Implement key changes and quality-of-life improvements based on beta tester feedback.</li>
+                    </ul>
+                </div>
+                <!-- Phase 4 -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="font-title text-2xl text-amber-300 mb-2">Phase 4: Post-Launch Support (The Journey Continues)</h3>
+                    <p class="text-gray-400 mb-4"><b>Goal:</b> Support the game and its community with new content and continued improvements.</p>
+                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
+                        <li><b>First Major Update ("The Sunken City"):</b> A new underwater biome with unique mechanics, creatures, and crafting schematics.</li>
+                        <li><b>Seasonal Events:</b> Timed events with unique challenges and cosmetic rewards (e.g., a "Red Sporefall" event with more dangerous creatures).</li>
+                        <li><b>Community Features:</b> Add highly requested features like dedicated servers, photo mode, and more customization options.</li>
+                        <li><b>Future Expansions:</b> Begin planning larger, paid DLCs that could introduce new continents, storylines, or fundamental gameplay systems.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="text-center py-8 border-t border-t-gray-800 mt-12">
+        <p class="text-gray-500 font-title">Outland - Game Concept & Plan</p>
+    </footer>
+
+    <script>
+        // Main Tab logic
+        const mainTabButtons = document.querySelectorAll('.main-tab-button');
+        const mainTabPanes = document.querySelectorAll('.main-tab-pane');
+
+        mainTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                mainTabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const targetTab = button.getAttribute('data-tab');
+                mainTabPanes.forEach(pane => {
+                    if (pane.id === targetTab) {
+                        pane.classList.remove('hidden');
+                    } else {
+                        pane.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Sub-Tab (Skills) logic
+        const subTabButtons = document.querySelectorAll('.sub-tab-button');
+        const subTabPanes = document.querySelectorAll('.sub-tab-pane');
+
+        subTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                subTabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const targetTab = button.getAttribute('data-sub-tab');
+                
+                subTabPanes.forEach(pane => {
+                    if (pane.id === targetTab) {
+                        pane.classList.remove('hidden');
+                    } else {
+                        pane.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Anchor link scroll logic
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+

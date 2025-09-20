@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aemberlight - Game Concept & Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a2a21; /* Dark Moss Green */
+            color: #e8e4d9; /* Warm Off-White */
+            font-family: 'Lora', serif;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%232a3f34' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm0-8h20v4H0v-4zm0-8h11v4H0v-4zm0-8h40v4H0v-4zm0-8h20v4H0v-4zm0-8h40v4H0v-4zM40 0h40v4H40v-4zm0 8h31v4H40v-4zm0 8h20v4H40v-4zm0 8h11v4H40v-4zm0 8h40v4H40v-4zm0 8h20v4H40v-4zm0 8h40v4H40v-4zm0 8h11v4H40v-4zm-20 8h20v4H20v-4z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        .font-title {
+            font-family: 'Uncial Antiqua', cursive;
+        }
+        .bg-gradient-custom {
+            background: linear-gradient(180deg, #121e16 0%, #1a2a21 100%);
+        }
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, rgba(185, 116, 58, 0), rgba(185, 116, 58, 0.7), rgba(185, 116, 58, 0));
+            margin: 4rem 0;
+            border: 0;
+            opacity: 0.5;
+        }
+        .card {
+            background-color: rgba(42, 63, 52, 0.5); /* Semi-transparent Moss Green */
+            border: 1px solid #8a562c; /* Dark Copper */
+            border-radius: 0; /* Sharp edges */
+            backdrop-filter: blur(4px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border-color: #b9743a;
+        }
+        .sticky-nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .main-tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            font-size: 1.5rem;
+        }
+        .main-tab-button.active {
+            color: #d99c62; /* Lighter Copper */
+            border-bottom-color: #d99c62;
+        }
+        .sub-tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .sub-tab-button.active {
+            color: #d99c62;
+            border-bottom-color: #d99c62;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="text-center py-20 md:py-28 bg-cover bg-center bg-fixed" style="background-image: url('https://image.pollinations.ai/prompt/a%20highly%20detailed,%20ancient%20and%20weathered%20fantasy%20world%20map,%20hand-drawn%20style,%20spread%20out%20on%20a%20dark%20oak%20table%20next%20to%20a%20flickering%20candle');">
+        <div class="bg-black bg-opacity-75 py-16">
+            <h1 class="font-title text-6xl md:text-8xl text-[#d99c62] tracking-wider">AEMBERLIGHT</h1>
+            <p class="text-lg md:text-xl mt-4 max-w-3xl mx-auto text-[#e8e4d9]">In a world where magic is a dying resource, lead a caravan of survivors across a shattered continent, weaving the last vestiges of power to rebuild civilization against a rising tide of darkness.</p>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="sticky-nav bg-gradient-custom backdrop-blur-sm shadow-lg border-b-2 border-black border-opacity-20">
+        <div class="container mx-auto px-4 flex justify-center items-center py-2 space-x-8">
+            <button class="main-tab-button font-title active" data-tab="idea">Idea</button>
+            <button class="main-tab-button font-title" data-tab="plan">Plan</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        
+        <!-- IDEA TAB CONTENT -->
+        <div class="main-tab-pane active" id="idea">
+            <!-- Sub-Navigation for Idea Tab -->
+            <div class="flex justify-center items-center py-3 space-x-4 md:space-x-8 text-sm md:text-base overflow-x-auto border-b-2 border-[#8a562c] border-opacity-30 mb-12">
+                <a href="#concept" class="font-title text-[#e8e4d9] hover:text-[#d99c62]">Concept</a>
+                <a href="#pillars" class="font-title text-[#e8e4d9] hover:text-[#d99c62]">Pillars</a>
+                <a href="#features" class="font-title text-[#e8e4d9] hover:text-[#d99c62]">Features</a>
+                <a href="#world" class="font-title text-[#e8e4d9] hover:text-[#d99c62]">World</a>
+                <a href="#story" class="font-title text-[#e8e4d9] hover:text-[#d99c62]">Story</a>
+            </div>
+
+            <!-- Core Concept Section -->
+            <section id="concept" class="scroll-mt-48">
+                <h2 class="font-title text-4xl text-center text-[#d99c62] mb-8">The Fading Light</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-[#e8e4d9] leading-relaxed space-y-4">
+                        <p>The world of Solara is dying. Its lifeblood, a crystalline energy known as <b>Aember</b>, is fading. For millennia, Aember powered great civilizations, fueled powerful magic, and held back the encroaching horrors from the Umbral plane. Now, the great Aember Lodes are sputtering out, plunging the world into a new dark age.</p>
+                        <p>You are a <b>Warden</b>, one of the last individuals with the innate ability to sense and weave Aember. Cast out from the crumbling, paranoid city-states, you find yourself leading a small caravan of refugees and fellow outcasts. Your mission is not to save the world as it was, but to find a place in it for your people to survive.</p>
+                        <p>"Aemberlight" is a top-down RPG that combines tactical, resource-based combat with caravan management and world exploration. Every spell cast, every upgrade built, costs precious Aember, making every decision a meaningful choice between immediate power and long-term survival.</p>
+                    </div>
+                    <img src="https://image.pollinations.ai/prompt/a%20lonely%20caravan%20of%20wagons,%20in%20a%20vast%20and%20desolate%20fantasy%20wasteland%20at%20dusk,%20dramatic%20clouds,%20digital%20painting,%20cinematic" alt="Caravan traveling in a fantasy world" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                </div>
+            </section>
+
+            <hr class="section-divider">
+            
+            <!-- Gameplay Pillars Section -->
+            <section id="pillars" class="scroll-mt-48 text-center">
+                <h2 class="font-title text-4xl text-[#d99c62] mb-12">Gameplay Pillars</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">Tactical Aember Weaving</h3>
+                        <p class="text-gray-300">Combat is a deliberate dance of positioning and resource management. Aember is your mana, health source, and currency. Do you unleash a devastating firestorm now, or save that Aember to heal your companion or upgrade your forge later?</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">The Living Caravan</h3>
+                        <p class="text-gray-300">Your base is your community, and it's always on the move. Manage your followers, assign them jobs, upgrade individual wagons (The Forge, The Scriptorium, The Apothecary), and defend it from ambushes. Your caravan is your lifeline.</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">Reputation & Consequence</h3>
+                        <p class="text-gray-300">The world remembers your actions. Siding with a desperate village against a greedy merchant guild may earn you a vital ally, but it will close off their trade routes. Your reputation with the world's scattered factions will fundamentally alter your journey.</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Key Features Section -->
+            <section id="features" class="scroll-mt-48">
+                <h2 class="font-title text-4xl text-center text-[#d99c62] mb-12">Key Features</h2>
+                <div class="space-y-10">
+                    <!-- Combat -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <img src="https://image.pollinations.ai/prompt/a%20top-down%20view%20of%20a%20fantasy%20battle%20in%20a%20ruined%20courtyard,%20a%20warrior%20and%20mage%20fight%20monsters,%20glowing%20spell%20effects,%20action%20RPG,%20digital%20art" alt="Top-down RPG combat" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                        <div>
+                            <h3 class="font-title text-3xl text-white mb-4">Tactical Combat</h3>
+                            <p class="text-gray-300 mb-4">A real-time with pause system. Position your Warden and companions, set up environmental combos (e.g., casting a water spell on the ground then an ice spell to create a slippery trap), and manage cooldowns. The battlefield itself is a weapon.</p>
+                            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                                <li><b>Aember as Health:</b> Instead of a health potion, you can channel Aember to mend wounds, creating a tense risk/reward choice in battle.</li>
+                                <li><b>Companions:</b> Recruit up to two companions to join you in battle, each with unique skill trees and AI behaviors you can customize (e.g., "Aggressive," "Support," "Defender").</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Caravan Management -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                         <div class="md:order-last">
+                            <img src="https://image.pollinations.ai/prompt/a%20detailed%20cutaway%20view%20of%20the%20inside%20of%20a%20fantasy%20wagon,%20showing%20a%20cozy,%_cluttered%20scribe's%20study%20with%20scrolls%20and%20books" alt="Interior of a caravan wagon" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-title text-3xl text-white mb-4">Caravan Management</h3>
+                            <p class="text-gray-300 mb-4">Your caravan is a customizable, mobile settlement. It appears as a physical location you can enter between journeys. Assign followers with specific skills (a skilled blacksmith, a wise scholar) to wagons to unlock new crafting recipes and upgrades.</p>
+                            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                                <li><b>Wagon Upgrades:</b> Use rare materials to upgrade wagons. A Tier 2 Forge unlocks steel crafting; a Tier 2 Scriptorium lets you research more powerful spell runes.</li>
+                                <li><b>Caravan Events:</b> While traveling on the world map, face random events: find a hidden Aember spring, negotiate with wary travelers, or defend the wagons from a bandit ambush.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <hr class="section-divider">
+            
+            <!-- The World of Solara -->
+            <section id="world" class="scroll-mt-48 text-center">
+                <h2 class="font-title text-4xl text-[#d99c62] mb-12">The World of Solara</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                     <div class="card p-4">
+                        <img src="https://image.pollinations.ai/prompt/top-down%20view%20of%20a%20hauntingly%20beautiful%20fantasy%20forest%20where%20the%20trees%20are%20made%20of%20glowing,%20colored%20crystal,%20eerie%20lighting" alt="Glasswood Forest" class="rounded-lg mb-4 w-full h-40 object-cover">
+                        <h3 class="font-title text-xl text-white">The Glasswood</h3>
+                        <p class="text-sm text-gray-300">A forest where the trees have crystallized into sharp, colored glass. Beautiful but treacherous, and home to reclusive Fae creatures who guard the last pure Aember Lodes.</p>
+                    </div>
+                    <div class="card p-4">
+                        <img src="https://image.pollinations.ai/prompt/top-down%20view%20of%20a%20vast%20fantasy%20desert%20of%20black%20sand,%20with%20the%20colossal%20fossilized%20skeleton%20of%20a%20serpent%20snaking%20through%20it" alt="The Cinderwastes" class="rounded-lg mb-4 w-full h-40 object-cover">
+                        <h3 class="font-title text-xl text-white">The Cinderwastes</h3>
+                        <p class="text-sm text-gray-300">A harsh desert of black sand and volcanic glass, the scar of an ancient magical war. Nomadic scavenger tribes and giant, sand-swimming creatures call this brutal landscape home.</p>
+                    </div>
+                    <div class="card p-4">
+                         <img src="https://image.pollinations.ai/prompt/top-down%20view%20of%20a%20flooded%20fantasy%20city,%20with%20the%20tops%20of%20ornate%20towers%20and%20bridges%20covered%20in%20moss,%20misty%20and%20atmospheric" alt="Sunken Kingdoms" class="rounded-lg mb-4 w-full h-40 object-cover">
+                        <h3 class="font-title text-xl text-white">The Sunken Kingdoms</h3>
+                        <p class="text-sm text-gray-300">The former heart of the empire, now a vast network of flooded lowlands and marsh. The spires of old castles jut from the water, haunted by amphibious monstrosities and the ghosts of the drowned.</p>
+                    </div>
+                    <div class="card p-4">
+                        <img src="https://image.pollinations.ai/prompt/top-down%20view%20of%20a%20frozen,%20treacherous%20mountain%20pass%20in%20a%20fantasy%20world,%20with%20glowing%20blue%20veins%20of%20ice%20and%20a%20night%20sky" alt="The Frostfang Peaks" class="rounded-lg mb-4 w-full h-40 object-cover">
+                        <h3 class="font-title text-xl text-white">The Frostfang Peaks</h3>
+                        <p class="text-sm text-gray-300">A treacherous, frozen mountain range where the Aember has been warped by the cold into a volatile, unstable form. Home to isolated monastic orders and powerful ice elementals.</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Story and Endgame -->
+            <section id="story" class="scroll-mt-48 text-center">
+                <h2 class="font-title text-4xl text-[#d99c62] mb-12">The Warden's Journey</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">Story Synopsis</h3>
+                        <p class="text-gray-300">The main quest revolves around the "Whispering Blight," a phenomenon where the fading Aember is causing reality to fray, allowing creatures from the Umbral plane to manifest. Your journey is to find the "Heart Lode," the mythical source of all Aember, in the hopes of either rekindling it or finding a way for your people to survive without it. Along the way, you'll uncover the secrets of why the Aember is fading and the role the ancient civilizations played in its decline.</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">Endgame Content</h3>
+                        <p class="text-gray-300">After the main story, the world opens up. You can take on Legendary Hunts for unique boss monsters, explore Umbral Rifts for high-risk, high-reward loot, and use your established caravan to help rebuild settlements across the map, creating permanent, faction-aligned towns that provide unique benefits.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PLAN TAB CONTENT -->
+        <div class="main-tab-pane hidden" id="plan">
+            <h2 class="font-title text-4xl text-center text-[#d99c62] mb-12">Development Roadmap</h2>
+            <p class="text-center text-gray-300 max-w-3xl mx-auto mb-12">This roadmap outlines a phased approach for creating Aemberlight, focusing on building the core experience first and expanding outwards to ensure quality and depth.</p>
+
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <!-- Phase 1 -->
+                <div class="card p-6">
+                    <h3 class="font-title text-2xl text-[#d99c62] mb-2">Phase 1: The Core Loop (Alpha)</h3>
+                    <p class="text-gray-300 mb-4"><b>Goal:</b> Create a fun and stable core experience that proves the concept.</p>
+                    <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                        <li><b>Combat:</b> Implement the Warden's basic combat abilities and the Aember weaving/resource system.</li>
+                        <li><b>Caravan:</b> Basic caravan movement on the world map. Implement the Forge and Scriptorium wagons with Tier 1 upgrades.</li>
+                        <li><b>World:</b> Build The Glasswood biome, including its resources, enemies, and one major settlement.</li>
+                        <li><b>Progression:</b> Implement the initial 10 levels of the classless skill system.</li>
+                    </ul>
+                </div>
+                <!-- Phase 2 -->
+                <div class="card p-6">
+                    <h3 class="font-title text-2xl text-[#d99c62] mb-2">Phase 2: Content Expansion (Beta)</h3>
+                    <p class="text-gray-300 mb-4"><b>Goal:</b> Broaden the world and deepen the gameplay systems.</p>
+                    <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                        <li><b>Companions & Factions:</b> Introduce the companion system and the initial reputation mechanics for at least three major factions.</li>
+                        <li><b>New Biomes:</b> Add The Cinderwastes and The Sunken Kingdoms.</li>
+                        <li><b>Caravan Depth:</b> Add more follower types, wagon upgrades (Tier 2), and caravan events.</li>
+                        <li><b>Story:</b> Implement the first act of the main story quest.</li>
+                    </ul>
+                </div>
+                 <!-- Phase 3 -->
+                <div class="card p-6">
+                    <h3 class="font-title text-2xl text-[#d99c62] mb-2">Phase 3: The Complete Journey (Launch)</h3>
+                    <p class="text-gray-300 mb-4"><b>Goal:</b> Deliver a polished, complete RPG experience.</p>
+                    <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                        <li><b>Final Biome & Story:</b> Add The Frostfang Peaks and complete the main story arc.</li>
+                        <li><b>Endgame Systems:</b> Implement Legendary Hunts and the settlement rebuilding system.</li>
+                        <li><b>Polish:</b> Extensive balancing of skills, economy, and difficulty. Focus on bug fixing, optimization, and tutorial improvements.</li>
+                        <li><b>Voice & Sound:</b> Add voice acting for key characters and finalize the musical score.</li>
+                    </ul>
+                </div>
+                <!-- Phase 4 -->
+                <div class="card p-6">
+                    <h3 class="font-title text-2xl text-[#d99c62] mb-2">Phase 4: Living World (Post-Launch)</h3>
+                    <p class="text-gray-300 mb-4"><b>Goal:</b> Support the community and expand the world of Solara.</p>
+                    <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                        <li><b>First DLC ("The Umbral Veil"):</b> Explore the Umbral plane itself, with new enemies, a new skill line, and a new endgame storyline.</li>
+                        <li><b>Free Updates:</b> Add new caravan wagons, companions, and world events based on community feedback.</li>
+                        <li><b>Hardcore Mode:</b> Introduce a mode with permadeath for the ultimate challenge.</li>
+                        <li><b>Cosmetic Shop:</b> Add optional cosmetic items for the caravan and characters to fund ongoing development.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="text-center py-8 border-t border-t-[#2a3f34] mt-12">
+        <p class="text-gray-500 font-title">Aemberlight - Game Concept & Plan</p>
+    </footer>
+
+    <script>
+        // Main Tab logic
+        const mainTabButtons = document.querySelectorAll('.main-tab-button');
+        const mainTabPanes = document.querySelectorAll('.main-tab-pane');
+
+        mainTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                mainTabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const targetTab = button.getAttribute('data-tab');
+                mainTabPanes.forEach(pane => {
+                    if (pane.id === targetTab) {
+                        pane.classList.remove('hidden');
+                    } else {
+                        pane.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Anchor link scroll logic
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+

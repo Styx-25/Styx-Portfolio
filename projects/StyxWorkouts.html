@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styx Workouts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS Section -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .animated-card {
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Add a separate animation for the active card to re-trigger on display change */
+        .day-workout-card:not(.hidden) {
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+
+        .icon-glow {
+             filter: drop-shadow(0 0 5px rgba(129, 140, 248, 0.4));
+        }
+
+        .dark .icon-glow {
+             filter: drop-shadow(0 0 8px rgba(129, 140, 248, 0.5));
+        }
+
+        .exercise-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .exercise-item:hover {
+            background-color: #f3f4f6; /* slate-100 */
+        }
+        .dark .exercise-item:hover {
+            background-color: rgba(51, 65, 85, 0.5); /* slate-700/50 */
+        }
+        /* Fix for text overflow */
+        .exercise-item span:first-child {
+            flex: 1 1 auto;
+            word-break: break-word;
+            margin-right: 1rem;
+        }
+        .exercise-item span:last-child {
+            flex-shrink: 0;
+            text-align: right;
+        }
+        
+        /* Active button state */
+        .day-button.active {
+            background-color: #4f46e5; /* indigo-600 */
+            color: white;
+        }
+        .dark .day-button.active {
+            background-color: #6366f1; /* indigo-500 */
+        }
+
+    </style>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="bg-slate-100 dark:bg-gray-900 text-slate-800 dark:text-slate-200 transition-colors duration-300">
+
+    <!-- HTML Section -->
+    <div class="container mx-auto px-4 py-8 md:py-12">
+        <header class="flex justify-between items-center mb-8 md:mb-12">
+             <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+                Styx<span class="text-indigo-500">Workouts</span>
+            </h1>
+            <button id="theme-toggle" type="button" class="text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:focus:ring-slate-700 rounded-lg text-sm p-2.5 transition-all">
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 3.636l-.707.707a1 1 0 001.414 1.414l.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM13.636 14.364a1 1 0 001.414 1.414l.707-.707a1 1 0 00-1.414-1.414l-.707.707z"></path></svg>
+            </button>
+        </header>
+        
+        <!-- Warm-up Section -->
+        <div class="animated-card bg-white dark:bg-slate-800/50 rounded-xl shadow-lg border border-transparent dark:border-slate-700/50 p-6 transform hover:-translate-y-1 transition-all duration-300 mb-8">
+            <div class="flex items-center mb-4">
+                <div class="p-3 rounded-full bg-amber-100 dark:bg-amber-900/50 mr-4 icon-glow">
+                     <svg class="w-6 h-6 text-amber-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Dynamic Warm-up (5-10 mins)</h2>
+            </div>
+            <p class="text-slate-600 dark:text-slate-400 mb-4">Never skip your warm-up. It increases blood flow, prevents injury, and prepares your body for the workout.</p>
+            <ul class="space-y-3">
+                <li class="exercise-item"><span>Jumping Jacks</span><span class="font-medium text-slate-500 dark:text-slate-400 text-sm">60 seconds</span></li>
+                <li class="exercise-item"><span>High Knees</span><span class="font-medium text-slate-500 dark:text-slate-400 text-sm">30 seconds</span></li>
+                <li class="exercise-item"><span>Arm Circles (Forward & Backward)</span><span class="font-medium text-slate-500 dark:text-slate-400 text-sm">30 seconds each</span></li>
+                <li class="exercise-item"><span>Leg Swings (Forward & Sideways)</span><span class="font-medium text-slate-500 dark:text-slate-400 text-sm">10-12 reps per leg</span></li>
+                <li class="exercise-item"><span>Bodyweight Squats</span><span class="font-medium text-slate-500 dark:text-slate-400 text-sm">15-20 reps</span></li>
+                <li class="exercise-item"><span>Light Cardio (Treadmill/Bike)</span><span class="font-medium text-slate-500 dark:text-slate-400 text-sm">3-5 minutes</span></li>
+            </ul>
+        </div>
+
+        <!-- Day Navigation Buttons -->
+        <div id="day-navigation" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+            <button data-day="1" class="day-button active text-sm md:text-base font-semibold py-2 px-4 rounded-lg transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700">Day 1</button>
+            <button data-day="2" class="day-button text-sm md:text-base font-semibold py-2 px-4 rounded-lg transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700">Day 2</button>
+            <button data-day="3" class="day-button text-sm md:text-base font-semibold py-2 px-4 rounded-lg transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700">Day 3</button>
+            <button data-day="4" class="day-button text-sm md:text-base font-semibold py-2 px-4 rounded-lg transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700">Day 4</button>
+            <button data-day="5" class="day-button text-sm md:text-base font-semibold py-2 px-4 rounded-lg transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700">Day 5</button>
+        </div>
+
+        <main>
+            <!-- Day 1: Chest -->
+            <div id="day-1" class="day-workout-card bg-white dark:bg-slate-800/50 rounded-xl shadow-lg border border-transparent dark:border-slate-700/50 p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-3 rounded-full bg-indigo-100 dark:bg-indigo-900/50 mr-4 icon-glow">
+                        <svg class="w-6 h-6 text-indigo-500 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 1v4m0 0h-4m4 0l-5-5"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Day 1: Chest</h2>
+                </div>
+                <ul class="space-y-2">
+                    <li class="exercise-item"><span>Barbell Bench Press</span> <span>4 sets of 6-10 reps</span></li>
+                    <li class="exercise-item"><span>Incline Dumbbell Press</span> <span>3 sets of 8-12 reps</span></li>
+                    <li class="exercise-item"><span>Decline Machine Press</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Flat Dumbbell Press</span> <span>3 sets of 8-12 reps</span></li>
+                    <li class="exercise-item"><span>Incline Barbell Press</span> <span>3 sets of 8-10 reps</span></li>
+                    <li class="exercise-item"><span>Dumbbell Flyes</span> <span>3 sets of 10-15 reps</span></li>
+                    <li class="exercise-item"><span>Incline Dumbbell Flyes</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Pec Deck Machine</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Svend Press</span> <span>3 sets of 15-20 reps</span></li>
+                    <li class="exercise-item"><span>Dumbbell Squeeze Press</span> <span>3 sets of 10-15 reps</span></li>
+                    <li class="exercise-item"><span>Low Cable Crossover</span><span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>High Cable Crossover</span><span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Weighted Dips</span> <span>3 sets to failure</span></li>
+                    <li class="exercise-item"><span>Decline Push-ups</span><span>3 sets to failure</span></li>
+                    <li class="exercise-item"><span>Standard Push-ups</span><span>3 sets to failure</span></li>
+                </ul>
+            </div>
+
+            <!-- Day 2: Back -->
+            <div id="day-2" class="day-workout-card hidden bg-white dark:bg-slate-800/50 rounded-xl shadow-lg border border-transparent dark:border-slate-700/50 p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-3 rounded-full bg-indigo-100 dark:bg-indigo-900/50 mr-4 icon-glow">
+                         <svg class="w-6 h-6 text-indigo-500 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Day 2: Back</h2>
+                </div>
+                <ul class="space-y-2">
+                    <li class="exercise-item"><span>Deadlifts</span> <span>4 sets of 5-8 reps</span></li>
+                    <li class="exercise-item"><span>Pull-Ups / Lat Pulldowns</span> <span>4 sets of 8-12 reps</span></li>
+                    <li class="exercise-item"><span>Barbell Bent-Over Rows</span> <span>3 sets of 8-10 reps</span></li>
+                    <li class="exercise-item"><span>T-Bar Rows</span> <span>3 sets of 8-12 reps</span></li>
+                    <li class="exercise-item"><span>Wide-Grip Seated Cable Row</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Close-Grip Lat Pulldown</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Single Arm Dumbbell Row</span><span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Machine High Row</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Straight Arm Pulldown</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Dumbbell Pullovers</span><span>3 sets of 10-15 reps</span></li>
+                    <li class="exercise-item"><span>Face Pulls</span> <span>4 sets of 15-20 reps</span></li>
+                    <li class="exercise-item"><span>Inverted Rows</span> <span>3 sets to failure</span></li>
+                    <li class="exercise-item"><span>Back Extensions</span> <span>3 sets of 15-20 reps</span></li>
+                    <li class="exercise-item"><span>Rack Pulls</span> <span>3 sets of 5-8 reps</span></li>
+                    <li class="exercise-item"><span>Renegade Rows</span> <span>3 sets of 10-12 reps</span></li>
+                </ul>
+            </div>
+
+            <!-- Day 3: Shoulders -->
+            <div id="day-3" class="day-workout-card hidden bg-white dark:bg-slate-800/50 rounded-xl shadow-lg border border-transparent dark:border-slate-700/50 p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-3 rounded-full bg-indigo-100 dark:bg-indigo-900/50 mr-4 icon-glow">
+                        <svg class="w-6 h-6 text-indigo-500 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Day 3: Shoulders</h2>
+                </div>
+                <ul class="space-y-2">
+                    <li class="exercise-item"><span>Barbell Overhead Press</span> <span>4 sets of 6-10 reps</span></li>
+                    <li class="exercise-item"><span>Seated Dumbbell Press</span> <span>4 sets of 8-12 reps</span></li>
+                    <li class="exercise-item"><span>Arnold Press</span><span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Dumbbell Lateral Raises</span> <span>4 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Cable Lateral Raises</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Dumbbell Front Raises</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Plate Front Raise</span> <span>3 sets of 15-20 reps</span></li>
+                    <li class="exercise-item"><span>Reverse Pec-Deck</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Bent-Over Dumbbell Raises</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Face Pulls</span> <span>4 sets of 15-20 reps</span></li>
+                    <li class="exercise-item"><span>Landmine Press</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Upright Rows</span><span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Barbell Shrugs</span><span>4 sets of 10-15 reps</span></li>
+                    <li class="exercise-item"><span>Dumbbell Shrugs</span><span>4 sets of 10-15 reps</span></li>
+                    <li class="exercise-item"><span>Pike Push-ups</span> <span>3 sets to failure</span></li>
+                </ul>
+            </div>
+
+            <!-- Day 4: Legs -->
+            <div id="day-4" class="day-workout-card hidden bg-white dark:bg-slate-800/50 rounded-xl shadow-lg border border-transparent dark:border-slate-700/50 p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-3 rounded-full bg-teal-100 dark:bg-teal-900/50 mr-4 icon-glow">
+                       <svg class="w-6 h-6 text-teal-500 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Day 4: Legs</h2>
+                </div>
+                <ul class="space-y-2">
+                    <li class="exercise-item"><span>Barbell Squats</span> <span>4 sets of 8-12 reps</span></li>
+                    <li class="exercise-item"><span>Romanian Deadlifts</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Leg Press</span> <span>4 sets of 10-15 reps</span></li>
+                    <li class="exercise-item"><span>Hack Squats</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Goblet Squats</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Walking Lunges</span><span>3 sets of 10-12 reps/leg</span></li>
+                    <li class="exercise-item"><span>Bulgarian Split Squats</span><span>3 sets of 8-10 reps/leg</span></li>
+                    <li class="exercise-item"><span>Lying Leg Curls</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Seated Leg Curls</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Leg Extensions</span><span>4 sets of 15-20 reps</span></li>
+                    <li class="exercise-item"><span>Hip Thrusts</span> <span>4 sets of 10-15 reps</span></li>
+                    <li class="exercise-item"><span>Good Mornings</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Seated Calf Raises</span> <span>4 sets of 15-20 reps</span></li>
+                    <li class="exercise-item"><span>Standing Calf Raises</span> <span>4 sets of 15-20 reps</span></li>
+                    <li class="exercise-item"><span>Adductor/Abductor Machine</span> <span>3 sets of 15-20 reps</span></li>
+                </ul>
+            </div>
+
+            <!-- Day 5: Arms -->
+            <div id="day-5" class="day-workout-card hidden bg-white dark:bg-slate-800/50 rounded-xl shadow-lg border border-transparent dark:border-slate-700/50 p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-3 rounded-full bg-teal-100 dark:bg-teal-900/50 mr-4 icon-glow">
+                        <svg class="w-6 h-6 text-teal-500 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Day 5: Arms</h2>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">(Biceps & Triceps)</p>
+                    </div>
+                </div>
+                <ul class="space-y-2">
+                    <li class="exercise-item"><span>Close-Grip Bench Press</span> <span>4 sets of 8-10 reps</span></li>
+                    <li class="exercise-item"><span>Barbell Curls</span> <span>4 sets of 8-12 reps</span></li>
+                    <li class="exercise-item"><span>Tricep Rope Pushdowns</span> <span>3 sets of 10-15 reps</span></li>
+                    <li class="exercise-item"><span>Hammer Curls</span> <span>3 sets of 10-15 reps</span></li>
+                    <li class="exercise-item"><span>Skull Crushers</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Incline Dumbbell Curls</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Overhead Tricep Extension</span><span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Preacher Curls</span><span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>Bench Dips</span> <span>3 sets to failure</span></li>
+                    <li class="exercise-item"><span>Concentration Curls</span><span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Cable Kickbacks</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Spider Curls</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Single Arm Overhead Ext.</span> <span>3 sets of 10-12 reps</span></li>
+                    <li class="exercise-item"><span>EZ-Bar Reverse Curls</span> <span>3 sets of 12-15 reps</span></li>
+                    <li class="exercise-item"><span>Diamond Push-ups</span><span>3 sets to failure</span></li>
+                </ul>
+            </div>
+        </main>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <!-- Supplement Guide -->
+            <div class="animated-card bg-white dark:bg-slate-800/50 rounded-xl shadow-lg border border-transparent dark:border-slate-700/50 p-6 transform hover:-translate-y-1 transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="p-3 rounded-full bg-violet-100 dark:bg-violet-900/50 mr-4 icon-glow">
+                        <svg class="w-6 h-6 text-violet-500 dark:text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547a2 2 0 00-.547 1.806l.477 2.387a6 6 0 00.517 3.86l.158.318a6 6 0 003.86.517l2.387.477a2 2 0 001.806-.547a2 2 0 00.547-1.806l-.477-2.387a6 6 0 00-.517-3.86l-.158-.318a6 6 0 01-.517-3.86l.477-2.387a2 2 0 01.547-1.806z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 1v4m0 0h-4m4 0l-5-5"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Supplement Guide</h2>
+                </div>
+                <div class="space-y-4 text-slate-600 dark:text-slate-400">
+                    <div>
+                        <h3 class="font-semibold text-slate-700 dark:text-slate-300">Pre-Workout:</h3>
+                        <p class="text-sm">Take 20-30 minutes before your workout for an energy boost and improved focus. Don't take it too late in the day to avoid sleep issues.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-700 dark:text-slate-300">Creatine:</h3>
+                        <p class="text-sm">Take 5g daily. Timing isn't critical, but many prefer taking it post-workout with their protein shake for better absorption. Consistency is key.</p>
+                    </div>
+                     <div>
+                        <h3 class="font-semibold text-slate-700 dark:text-slate-300">Protein Powder/Shake:</h3>
+                        <p class="text-sm">Best consumed within 60 minutes post-workout to aid muscle repair. Can also be taken throughout the day to meet your daily protein goals.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Day 6 & 7: Rest -->
+            <div class="animated-card text-center bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6 rounded-xl shadow-lg flex flex-col justify-center items-center">
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">Day 6 & 7: Active Rest</h2>
+                    <p>Listen to your body. Light cardio, stretching, or a walk is recommended to aid recovery.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Section -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- THEME TOGGLE ---
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+            const themeToggleBtn = document.getElementById('theme-toggle');
+
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                themeToggleLightIcon.classList.remove('hidden');
+                document.documentElement.classList.add('dark');
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+                document.documentElement.classList.remove('dark')
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                themeToggleDarkIcon.classList.toggle('hidden');
+                themeToggleLightIcon.classList.toggle('hidden');
+                if (localStorage.getItem('color-theme')) {
+                    if (localStorage.getItem('color-theme') === 'light') {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    }
+                } else {
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    }
+                }
+            });
+
+            // --- DAY SELECTION LOGIC ---
+            const dayButtons = document.querySelectorAll('.day-button');
+            const workoutCards = document.querySelectorAll('.day-workout-card');
+
+            dayButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update button active states
+                    dayButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const targetDayId = `day-${button.dataset.day}`;
+
+                    // Show/hide workout cards
+                    workoutCards.forEach(card => {
+                        if (card.id === targetDayId) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

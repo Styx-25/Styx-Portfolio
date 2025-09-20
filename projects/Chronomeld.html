@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronomeld - Game Concept & Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d0c1d; /* Midnight Blue */
+            color: #d1d1f0; /* Lavender Gray */
+            font-family: 'Roboto Mono', monospace;
+            background-image: radial-gradient(#2c2a5a 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .font-title {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00;
+        }
+        .bg-gradient-custom {
+            background: linear-gradient(180deg, #070612 0%, #0d0c1d 100%);
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 140, 0, 0), rgba(255, 140, 0, 0.7), rgba(255, 140, 0, 0));
+            margin: 4rem 0;
+            border: 0;
+            opacity: 0.6;
+        }
+        .card {
+            background-color: rgba(18, 16, 41, 0.8); /* Semi-transparent Indigo */
+            border: 1px solid #ff8c00; /* Bright Orange */
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.4);
+            border-color: #ffa500;
+        }
+        .sticky-nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .main-tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            font-size: 1.5rem;
+        }
+        .main-tab-button.active {
+            color: #ff8c00;
+            border-bottom-color: #ff8c00;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="text-center py-20 md:py-28 bg-cover bg-center bg-fixed" style="background-image: url('https://image.pollinations.ai/prompt/a%20vast,%20shattered%20voxel%20world%20of%20glowing%20floating%20islands,%20cosmic%20nebula,%20sci-fi%20digital%20art');">
+        <div class="bg-black bg-opacity-75 py-16">
+            <h1 class="font-title text-6xl md:text-8xl text-[#ff8c00] tracking-wider">CHRONOMELD</h1>
+            <p class="text-lg md:text-xl mt-4 max-w-3xl mx-auto text-[#d1d1f0]">The world has shattered. Wield the power of time itself to rebuild a civilization among floating voxel islands, automate your future, and unravel the secrets of the great cataclysm.</p>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="sticky-nav bg-gradient-custom backdrop-blur-sm shadow-lg border-b-2 border-black border-opacity-20">
+        <div class="container mx-auto px-4 flex justify-center items-center py-2 space-x-8">
+            <button class="main-tab-button font-title active" data-tab="idea">Idea</button>
+            <button class="main-tab-button font-title" data-tab="plan">Plan</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        
+        <!-- IDEA TAB CONTENT -->
+        <div class="main-tab-pane active" id="idea">
+            <!-- Sub-Navigation for Idea Tab -->
+            <div class="flex justify-center items-center py-3 space-x-4 md:space-x-8 text-sm md:text-base overflow-x-auto border-b-2 border-[#ff8c00] border-opacity-30 mb-12">
+                <a href="#concept" class="font-title text-[#d1d1f0] hover:text-[#ff8c00]">Concept</a>
+                <a href="#pillars" class="font-title text-[#d1d1f0] hover:text-[#ff8c00]">Pillars</a>
+                <a href="#features" class="font-title text-[#d1d1f0] hover:text-[#ff8c00]">Features</a>
+                <a href="#world" class="font-title text-[#d1d1f0] hover:text-[#ff8c00]">World</a>
+                <a href="#story" class="font-title text-[#d1d1f0] hover:text-[#ff8c00]">Story</a>
+            </div>
+
+            <!-- Core Concept Section -->
+            <section id="concept" class="scroll-mt-48">
+                <h2 class="font-title text-4xl text-center text-[#ff8c00] mb-8">The Great Fracture</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-[#d1d1f0] leading-relaxed space-y-4">
+                        <p>A temporal experiment of unimaginable scale has gone wrong, causing "The Great Fracture." Reality shattered, splintering the world into a sea of floating voxel islands suspended in a timeless void. You are a <b>Paradox Agent</b>, a survivor thrown out of sync with normal spacetime, granting you a unique connection to the flow of time itself.</p>
+                        <p>Equipped with a "Chrono-Gauntlet," you are one of the few who can perceive and manipulate localized time streams. The world is your sandbox, but one where the sand itself can be aged to dust, reversed to stone, or frozen in glass-like stasis.</p>
+                        <p>"Chronomeld" is a voxel survival and automation game where your primary tool is time. You must explore the shattered archipelago, gather resources not just by breaking them but by manipulating their age, build complex automated systems that leverage temporal mechanics, and defend your home from creatures twisted by the Fracture.</p>
+                    </div>
+                    <img src="https://image.pollinations.ai/prompt/a%20sci-fi%20explorer%20on%20a%20voxel%20island%20cliff,%20looking%20out%20at%20a%20sea%20of%20other%20floating%20islands,%20digital%20painting,%20cinematic" alt="Survivor on a voxel island" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                </div>
+            </section>
+
+            <hr class="section-divider">
+            
+            <!-- Gameplay Pillars Section -->
+            <section id="pillars" class="scroll-mt-48 text-center">
+                <h2 class="font-title text-4xl text-[#ff8c00] mb-12">Gameplay Pillars</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">Bend Time, Break Worlds</h3>
+                        <p class="text-gray-300">Your core interaction is time manipulation. Create zones of accelerated time to instantly grow forests or rapidly process ore. Reverse time on a ruin to see its blueprint and reclaim its lost resources. Freeze enemies or waterfalls in solid stasis.</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">Temporal Automation</h3>
+                        <p class="text-gray-300">Go beyond simple conveyor belts. Build factories where time is a component. A quarry in a fast-forward zone produces stone at 10x speed but requires constant repair. A farm in a stasis field keeps crops fresh indefinitely. Time is the ultimate machine.</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">Explore the Anomaly</h3>
+                        <p class="text-gray-300">Every floating island is a mystery. Discover islands frozen in the past, overgrown with prehistoric flora. Find islands accelerated into a future of crystalline dust. Unravel the story by exploring these temporal paradoxes and confronting the horrors within.</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Key Features Section -->
+            <section id="features" class="scroll-mt-48">
+                <h2 class="font-title text-4xl text-center text-[#ff8c00] mb-12">Key Features</h2>
+                <div class="space-y-10">
+                    <!-- Time Manipulation -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <img src="https://image.pollinations.ai/prompt/a%20glowing%20sci-fi%20gauntlet%20projects%20a%20time-bubble,%20turning%20a%20voxel%20sapling%20into%20a%20full%20grown%20tree%20instantly,%20first-person%20view" alt="Time manipulation gauntlet" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                        <div>
+                            <h3 class="font-title text-3xl text-white mb-4">The Chrono-Gauntlet</h3>
+                            <p class="text-gray-300 mb-4">Your multi-tool for everything. It consumes "Temporal Charge," a resource gathered from rifts or crafted from rare materials.</p>
+                            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                                <li><b>Accelerate:</b> Creates a bubble of fast-forward time. Excellent for resource generation and rapid construction.</li>
+                                <li><b>Reverse:</b> Creates a bubble of rewind time. Reverts blocks to a previous state (e.g., stone to lava, logs to saplings). Used for puzzles and deconstruction.</li>
+                                <li><b>Stasis:</b> Creates a field of frozen time. Stops moving objects and enemies, and can be used to create temporary solid platforms out of liquids.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Building & Automation -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                         <div class="md:order-last">
+                            <img src="https://image.pollinations.ai/prompt/a%20vast,%20complex%20voxel%20factory%20with%20glowing%20pipes%20and%20conveyors,%20all%20contained%20in%20a%20giant,%20shimmering%20time-distortion%20field,%20sci-fi" alt="Temporal automation factory" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-title text-3xl text-white mb-4">Voxel Construction</h3>
+                            <p class="text-gray-300 mb-4">Build anything you can imagine, block by block. Construct flying ships to traverse the archipelago, build sprawling bases with automated defenses, and design complex factories where every component matters.</p>
+                            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                                <li><b>Time-Reactive Blocks:</b> Special blocks that interact with your gauntlet. A "Stasis Capacitor" can store temporal energy, while a "Temporal Engine" can power your flying contraptions.</li>
+                                <li><b>Logical Systems:</b> Design intricate systems with sensors, logic gates, and pistons to create truly automated production lines and defenses.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <hr class="section-divider">
+            
+            <!-- The Shattered World -->
+            <section id="world" class="scroll-mt-48 text-center">
+                <h2 class="font-title text-4xl text-[#ff8c00] mb-12">The Shattered World</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                     <div class="card p-4">
+                        <img src="https://image.pollinations.ai/prompt/a%20lush,%20prehistoric%20voxel%20jungle%20island,%20with%20giant%20ferns%20and%20voxel%20dinosaurs,%20trapped%20in%20a%20shimmering%20amber-like%20stasis%20field" alt="Primal Island" class="rounded-lg mb-4 w-full h-40 object-cover">
+                        <h3 class="font-title text-xl text-white">Primal Shards</h3>
+                        <p class="text-sm text-gray-300">Islands locked in the distant past. Giant voxel flora, prehistoric creatures, and rich, untouched resource nodes await.</p>
+                    </div>
+                    <div class="card p-4">
+                        <img src="https://image.pollinations.ai/prompt/a%20gleaming%20sci-fi%20voxel%20city,%20frozen%20mid-explosion,%20shards%20of%20buildings%20hanging%20in%20the%20air,%20digital%20art,%20stasis%20effect" alt="The Echo Cities" class="rounded-lg mb-4 w-full h-40 object-cover">
+                        <h3 class="font-title text-xl text-white">The Echo Cities</h3>
+                        <p class="text-sm text-gray-300">The remains of the old world, frozen in time. Explore preserved cities to find advanced technology and clues about the Fracture, but beware the glitching security drones.</p>
+                    </div>
+                    <div class="card p-4">
+                         <img src="https://image.pollinations.ai/prompt/a%20barren%20voxel%20island%20of%20sand%20and%20crystal,%20with%20a%20sun%20streaking%20across%20the%20sky%20in%20a%20time-lapse%20effect,%20sci-fi%20art" alt="The Dustbowl" class="rounded-lg mb-4 w-full h-40 object-cover">
+                        <h3 class="font-title text-xl text-white">The Dustbowl</h3>
+                        <p class="text-sm text-gray-300">Islands accelerated thousands of years into the future. All that remains is dust, sand, and hyper-evolved crystalline creatures. The sun cycles rapidly, making day/night survival critical.</p>
+                    </div>
+                    <div class="card p-4">
+                        <img src="https://image.pollinations.ai/prompt/a%20chaotic%20voxel%20island%20that%20flickers%20and%20glitches%20between%20a%20fiery%20volcano%20and%20a%20frozen%20tundra,%20digital%20glitch%20art" alt="The Unstable Core" class="rounded-lg mb-4 w-full h-40 object-cover">
+                        <h3 class="font-title text-xl text-white">The Unstable Core</h3>
+                        <p class="text-sm text-gray-300">The chaotic center of the archipelago where time is completely broken. Biomes shift randomly, and the most dangerous "Chronovores" spawn here, guarding the rarest materials.</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Story and Endgame -->
+            <section id="story" class="scroll-mt-48 text-center">
+                <h2 class="font-title text-4xl text-[#ff8c00] mb-12">Unraveling the Paradox</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">Story Synopsis</h3>
+                        <p class="text-gray-300">The main quest is to discover the cause of the Great Fracture. By exploring Echo Cities and deciphering logs from the original scientists, you learn about the "Paradox Engine," the device that caused the disaster. Your goal is to find its scattered components across the archipelago.</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-title text-2xl text-white mb-2">Endgame Content</h3>
+                        <p class="text-gray-300">Reassembling the Paradox Engine allows you to make a choice: attempt to reverse the Fracture, risking total annihilation to restore the old world, or use its power to stabilize the shattered archipelago, becoming the new master of this broken reality. Post-story, you can use the Engine to generate unique, high-difficulty island "anomalies" to explore.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PLAN TAB CONTENT -->
+        <div class="main-tab-pane hidden" id="plan">
+            <h2 class="font-title text-4xl text-center text-[#ff8c00] mb-12">Development Roadmap</h2>
+            <p class="text-center text-gray-300 max-w-3xl mx-auto mb-12">This roadmap outlines a phased approach for creating Chronomeld, focusing on perfecting the unique time-based mechanics before expanding the world and content.</p>
+
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <!-- Phase 1 -->
+                <div class="card p-6">
+                    <h3 class="font-title text-2xl text-[#ff8c00] mb-2">Phase 1: Proof of Concept (Alpha)</h3>
+                    <p class="text-gray-300 mb-4"><b>Goal:</b> Nail the core time manipulation and voxel interaction loop.</p>
+                    <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                        <li><b>Core Mechanic:</b> Fully functional Chrono-Gauntlet with Accelerate, Reverse, and Stasis modes.</li>
+                        <li><b>Voxel Engine:</b> Implement basic building, destruction, and resource gathering.</li>
+                        <li><b>World:</b> Procedurally generate a small cluster of basic islands.</li>
+                        <li><b>Player Systems:</b> Implement health, inventory, and basic crafting.</li>
+                    </ul>
+                </div>
+                <!-- Phase 2 -->
+                <div class="card p-6">
+                    <h3 class="font-title text-2xl text-[#ff8c00] mb-2">Phase 2: Automation & Exploration (Beta)</h3>
+                    <p class="text-gray-300 mb-4"><b>Goal:</b> Expand the sandbox and introduce the core automation systems.</p>
+                    <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                        <li><b>Automation:</b> Introduce the first tier of automation blocks (conveyors, drills) and their interaction with time zones.</li>
+                        <li><b>Biomes:</b> Add Primal Shards and Echo Cities with their unique resources and enemies.</li>
+                        <li><b>Enemies:</b> Implement the first set of Chronovores and glitching security drones.</li>
+                        <li><b>Transport:</b> Implement the system for building basic flying ships.</li>
+                    </ul>
+                </div>
+                 <!-- Phase 3 -->
+                <div class="card p-6">
+                    <h3 class="font-title text-2xl text-[#ff8c00] mb-2">Phase 3: Story & Polish (Launch)</h3>
+                    <p class="text-gray-300 mb-4"><b>Goal:</b> Create a complete, compelling experience from start to finish.</p>
+                    <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                        <li><b>Storyline:</b> Fully implement the Paradox Engine questline and the two endgame choices.</li>
+                        <li><b>Final Biomes:</b> Add The Dustbowl and The Unstable Core.</li>
+                        <li><b>Advanced Systems:</b> Introduce logical systems and high-tier automation.</li>
+                        <li><b>Optimization:</b> Focus on performance, balancing, and bug fixing for a smooth launch experience.</li>
+                    </ul>
+                </div>
+                <!-- Phase 4 -->
+                <div class="card p-6">
+                    <h3 class="font-title text-2xl text-[#ff8c00] mb-2">Phase 4: Expanding the Paradox (Post-Launch)</h3>
+                    <p class="text-gray-300 mb-4"><b>Goal:</b> Support the game with new content and challenges.</p>
+                    <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                        <li><b>Multiplayer:</b> Introduce cooperative multiplayer, allowing players to build and explore together.</li>
+                        <li><b>New Anomalies:</b> Add new, procedurally generated island types with unique rules (e.g., islands with reversed gravity).</li>
+                        <li><b>"The Melding" Update:</b> A major update that allows players to "meld" two islands together, combining their properties and creating new challenges.</li>
+                        <li><b>Mod Support:</b> Release tools to allow the community to create their own blocks, creatures, and island types.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="text-center py-8 border-t border-t-[#2c2a5a] mt-12">
+        <p class="text-gray-500 font-title">Chronomeld - Game Concept & Plan</p>
+    </footer>
+
+    <script>
+        // Main Tab logic
+        const mainTabButtons = document.querySelectorAll('.main-tab-button');
+        const mainTabPanes = document.querySelectorAll('.main-tab-pane');
+
+        mainTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                mainTabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const targetTab = button.getAttribute('data-tab');
+                mainTabPanes.forEach(pane => {
+                    if (pane.id === targetTab) {
+                        pane.classList.remove('hidden');
+                    } else {
+                        pane.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Anchor link scroll logic
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
